@@ -1,0 +1,14 @@
+/* line 1, ../scss/fonts.scss */
+#test {
+  color: white;
+}
+
+/* line 1, ../scss/variables.scss */
+#test2 {
+  color: green;
+}
+
+/* line 1, ../scss/components/test.scss */
+body {
+  font-weight: bold;
+}

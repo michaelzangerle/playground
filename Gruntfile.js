@@ -25,7 +25,7 @@ module.exports = function(grunt) {
                 ' * <%= pkg.name %> v<%= pkg.version %>\n' +
                 ' * <%= pkg.homepage %> \n' +
                 ' * (c) <%= pkg.author %>\n' +
-                ' * <%= grunt.template.today("dd-mm-yyyy") %>' +
+                ' * <%= grunt.template.today("dd-mm-yyyy hh:mm") %>\n' +
                 ' */\n\n'
         },
 
@@ -35,18 +35,19 @@ module.exports = function(grunt) {
             dev: {
                 options: {
                     sassDir: 'scss/',
-                    specify: 'scss/base.scss',
+                    specify: 'scss/playground.scss',
                     cssDir: 'dist/',
                     relativeAssets: false
                 }
             }
         },
 
-        concat: {
+        cssmin: {
             options: { banner: '<%= meta.banner %>' },
-            dist: {
-                src: ['js/{,*/}*.js'],
-                dest: 'dist/<%= pkg.name %>.js'
+            compress: {
+                files: {
+                    'dist/<%= pkg.name %>.min.css': ['dist/*.css']
+                }
             }
         },
 
@@ -63,6 +64,14 @@ module.exports = function(grunt) {
             }
         },
 
+        concat: {
+            options: { banner: '<%= meta.banner %>' },
+            dist: {
+                src: ['js/{,*/}*.js'],
+                dest: 'dist/<%= pkg.name %>.js'
+            }
+        },
+
 
         // watch ------------------------------
 
@@ -72,7 +81,7 @@ module.exports = function(grunt) {
 //                tasks: ['htmlhint']
 //            },
             css: {
-                files: ['scss/base.scss'],
+                files: ['scss/playground.scss'],
                 tasks: ['compass']
             }
         }
@@ -83,7 +92,7 @@ module.exports = function(grunt) {
     //grunt.loadNpmTasks('grunt-contrib-uglify');
 
     // Default task(s).
-    grunt.registerTask('default', ['compass']);
+    grunt.registerTask('default', ['compass', 'cssmin']);
     grunt.registerTask('watch', ['watch']);
 
 };
