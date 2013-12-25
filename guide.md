@@ -59,7 +59,6 @@ git push -u origin master
 
 ```
 npm install grunt --save-dev
-...
 ```
 **Maybe interesting**
   * [jshint](https://github.com/gruntjs/grunt-contrib-jshint)
@@ -76,7 +75,7 @@ npm install grunt --save-dev
 
 * Add node_modules direcotry to .gitignore
 
-## Grunt and Gruntfile.js
+##Grunt and Gruntfile.js
 
 * add a [gruntfile](http://gruntjs.com/getting-started#the-gruntfile) and configure tasks
 
@@ -108,7 +107,7 @@ module.exports = function(grunt) {
 
 };
 ```
-### HTMLHint configuration example
+###HTMLHint configuration example
 
 ```
 htmlhint: {
