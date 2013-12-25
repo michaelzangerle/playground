@@ -3,7 +3,7 @@
 ##Repository
 
 1. create a new repo on github
-2. 
+2. connect local and remote repo
 
   * create new local repo an touch
   * adjust readme file - [markdown cheatsheet](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)
@@ -36,7 +36,7 @@ git push -u origin master
 
 ## package.json
 
-1. Create a package.json file with following structure
+* Create a package.json file with ```npm init```
 
 ```
 {
@@ -51,7 +51,7 @@ git push -u origin master
 }
 ```
 
-2. Install dependencies with with --save-dev flag to add them automaticalliy to the package.json (config follows later on)
+* Install dependencies with with --save-dev flag to add them automaticalliy to the package.json (config follows later on)
 
 ```
 npm install grunt --save-dev
@@ -65,4 +65,4 @@ npm install grunt --save-dev
   * [uglify](https://github.com/gruntjs/grunt-contrib-uglify)
   * ...
 
-3. Add node_modules direcotry to .gitignore
+* Add node_modules direcotry to .gitignore
