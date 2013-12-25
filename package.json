@@ -12,7 +12,9 @@
     "grunt-contrib-concat": "~0.3.0",
     "grunt-html-validation": "~0.1.12",
     "matchdep": "~0.3.0",
-    "grunt-contrib-compass": "~0.7.0"
+    "grunt-contrib-compass": "~0.7.0",
+    "bower": "~1.2.8",
+    "grunt-contrib-copy": "~0.5.0"
   },
   "description": "Simple playground for various things in web development",
   "repository": {

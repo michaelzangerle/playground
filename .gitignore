@@ -2,6 +2,7 @@ playground.iml
 .idea/
 
 node_modules/
+bower_modules/
 .sass-cache/
 
 

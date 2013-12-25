@@ -69,6 +69,9 @@ npm install grunt --save-dev
   * [html-validation](https://github.com/praveenvijayan/grunt-html-validation)
   * [compass](https://github.com/gruntjs/grunt-contrib-compass)
   * [requirejs](https://github.com/gruntjs/grunt-contrib-requirejs)
+  * [clean](https://github.com/gruntjs/grunt-contrib-clean)
+  * [copy](https://github.com/gruntjs/grunt-contrib-copy)
+  * [yuidoc](https://github.com/gruntjs/grunt-contrib-yuidoc)
   * ...
 
 * Add node_modules direcotry to .gitignore
@@ -105,7 +108,7 @@ module.exports = function(grunt) {
 
 };
 ```
-### SCSS with compass
+###SCSS with compass
 
 * get the ruby version manager (rvm) [on ubuntu](http://ryanbigg.com/2010/12/ubuntu-ruby-rvm-rails-and-you/)
 * gem update --system
@@ -122,5 +125,20 @@ compass: {
             relativeAssets: false
         }
     }
-},
+}
 ```
+
+##Bower
+
+* Install bower
+* run ```bower init```
+* get libs/frameworks
+
+```
+bower install jquery --save-dev
+```
+
+##TODO
+*grunt-contrib-imageoptim
+*grunt-newer?
+*grunt-uncss?
