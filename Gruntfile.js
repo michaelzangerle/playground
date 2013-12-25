@@ -79,7 +79,7 @@ module.exports = function(grunt) {
         concat: {
             options: { banner: '<%= meta.banner %>' },
             dist: {
-                src: ['js/{,*/}*.js'],
+                src: ['js/{,**/}*.js'],
                 dest: 'dist/<%= pkg.name %>.js'
             }
         },
@@ -90,9 +90,23 @@ module.exports = function(grunt) {
                     // jquery
                     {
                         expand: true,
-                        cwd: 'bower_components/',
-                        src: ['**'],
-                        dest: 'bower_components/aura/lib/'
+                        cwd: 'bower_components/jquery/',
+                        src: ['jquery.min.js'],
+                        dest: 'js/libs/jquery/'
+                    },
+                    // underscore
+                    {
+                        expand: true,
+                        cwd: 'bower_components/underscore/',
+                        src: ['underscore-min.js'],
+                        dest: 'js/libs/underscore/'
+                    },
+                    // backbone
+                    {
+                        expand: true,
+                        cwd: 'bower_components/backbone/',
+                        src: ['backbone-min.js'],
+                        dest: 'js/libs/backbone/'
                     }
                 ]
             }
@@ -123,7 +137,7 @@ module.exports = function(grunt) {
 
     grunt.registerTask('default', ['watch']);
 
-    grunt.registerTask('build', ['compass', 'cssmin', 'jshint' , 'concat', 'uglify']);
+    grunt.registerTask('build', ['compass', 'cssmin', 'jshint' , 'copy', 'concat', 'uglify']);
 
 
 };
