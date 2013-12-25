@@ -1,3 +1,5 @@
+/* http://jshint.com/docs/options/ */
+
 {
     "globals": {
         "console": true
