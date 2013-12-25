@@ -67,17 +67,15 @@ npm install grunt --save-dev
   * [cssmin](https://github.com/gruntjs/grunt-contrib-cssmin)
   * [watch](https://github.com/gruntjs/grunt-contrib-watch)
   * [htmlhint](https://github.com/yaniswang/grunt-htmlhint)
-
   * [compass](https://github.com/gruntjs/grunt-contrib-compass)
   * [requirejs](https://github.com/gruntjs/grunt-contrib-requirejs)
-
   * ...
 
 * Add node_modules direcotry to .gitignore
 
 ##Grunt and Gruntfile.js
 
-* add a [gruntfile](http://gruntjs.com/getting-started#the-gruntfile) and configure tasks
+* add a [gruntfile](http://gruntjs.com/getting-started#the-gruntfile) and configure tasks (look at Gruntfile.js)
 
 ```
 module.exports = function(grunt) {
@@ -106,24 +104,4 @@ module.exports = function(grunt) {
   grunt.registerTask('default', []);
 
 };
-```
-###HTMLHint configuration example
-
-```
-htmlhint: {
-    build: {
-        options: {
-            'tag-pair': true,
-            'tagname-lowercase': true,
-            'attr-lowercase': true,
-            'attr-value-double-quotes': true,
-            'doctype-first': true,
-            'spec-char-escape': true,
-            'id-unique': true,
-            'head-script-disabled': true,
-            'style-disabled': true
-        },
-        src: ['index.html']
-    }
-}
 ```

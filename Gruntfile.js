@@ -8,22 +8,12 @@ module.exports = function(grunt) {
     pkg: grunt.file.readJSON('package.json'),
 
     htmlhint: {
-      build: {
-        options: {
-          'tag-pair': true,
-          'tagname-lowercase': true,
-          'attr-lowercase': true,
-          'attr-value-double-quotes': true,
-          'doctype-first': true,
-          'spec-char-escape': true,
-          'id-unique': true,
-          'head-script-disabled': true,
-          'style-disabled': true
-        },
-      src: ['index.html']
-      }
-    }
-    
+      options: {
+        htmlhintrc: '.htmlhintrc'
+      },
+      src: ['demos/**/*.html']
+    },
+
     uglify: {
       options: {
         banner: '/*! <%= pkg.name %> <%= grunt.template.today("yyyy-mm-dd") %> */\n'
@@ -32,13 +22,22 @@ module.exports = function(grunt) {
         src: 'src/<%= pkg.name %>.js',
         dest: 'build/<%= pkg.name %>.min.js'
       }
-    }
+    },
+
+    watch: {
+      html: {
+          files: ['**/*.html'],
+          tasks: ['htmlhint']
+      }
+    },
+
+
   });
 
   // Load the plugin that provides the "uglify" task.
   //grunt.loadNpmTasks('grunt-contrib-uglify');
 
   // Default task(s).
-  grunt.registerTask('default', []);
+  grunt.registerTask('default', ['htmlhint']);
 
 };
