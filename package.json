@@ -1,10 +1,9 @@
 {
-    "name" : "Playground",
-    "version" : "0.0.1",
-    "author" : "Michael Zangerle",
-    "private" : true,
-
-    "devDependencies" : {
-        "grunt" :                   "~0.4.0"
-    } 
+  "name": "Playground",
+  "version": "0.0.1",
+  "author": "Michael Zangerle",
+  "private": true,
+  "devDependencies": {
+    "grunt": "~0.4.2"
+  }
 }
