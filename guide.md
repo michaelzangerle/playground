@@ -51,10 +51,18 @@ git push -u origin master
 }
 ```
 
-2. Install dependencies with with --save-dev flag to add them automaticalliy to the package.json
+2. Install dependencies with with --save-dev flag to add them automaticalliy to the package.json (config follows later on)
 
 ```
 npm install grunt --save-dev
 ```
+**Maybe interesting**
+  * [jshint](https://github.com/gruntjs/grunt-contrib-jshint)
+  * [watch](https://github.com/gruntjs/grunt-contrib-watch)
+  * [requirejs](https://github.com/gruntjs/grunt-contrib-requirejs)
+  * [concat](https://github.com/gruntjs/grunt-contrib-concat)
+  * [compass](https://github.com/gruntjs/grunt-contrib-compass)
+  * [uglify](https://github.com/gruntjs/grunt-contrib-uglify)
+  * ...
 
 3. Add node_modules direcotry to .gitignore
