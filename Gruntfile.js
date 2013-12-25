@@ -35,7 +35,7 @@ module.exports = function(grunt) {
             dev: {
                 options: {
                     sassDir: 'scss/',
-                    specify: 'scss/playground.scss',
+                    specify: 'scss/Playground.scss',
                     cssDir: 'dist/',
                     relativeAssets: false
                 }
@@ -53,6 +53,14 @@ module.exports = function(grunt) {
 
 
         // js ------------------------------
+
+        // http://jshint.com/docs/options/
+        jshint: {
+            options: {
+                jshintrc: '.jshintrc'
+            },
+            all: ['demos/**/*js']
+        },
 
         uglify: {
             options: {
@@ -81,8 +89,12 @@ module.exports = function(grunt) {
 //                tasks: ['htmlhint']
 //            },
             css: {
-                files: ['scss/playground.scss'],
+                files: ['scss/Playground.scss'],
                 tasks: ['compass']
+            },
+            js: {
+                files: ['dist/Playground.js'],
+                tasks: ['jshint']
             }
         }
 
@@ -92,7 +104,10 @@ module.exports = function(grunt) {
     //grunt.loadNpmTasks('grunt-contrib-uglify');
 
     // Default task(s).
-    grunt.registerTask('default', ['compass', 'cssmin']);
+    grunt.registerTask('default', ['jshint']);
+
+    grunt.registerTask('build', ['compass', 'cssmin']);
+
     grunt.registerTask('watch', ['watch']);
 
 };
