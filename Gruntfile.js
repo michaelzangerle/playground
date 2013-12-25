@@ -34,6 +34,7 @@ module.exports = function(grunt) {
         compass: {
             dev: {
                 options: {
+                    options: { banner: '<%= meta.banner %>' },
                     sassDir: 'scss/',
                     specify: 'scss/Playground.scss',
                     cssDir: 'dist/',
@@ -67,8 +68,8 @@ module.exports = function(grunt) {
                 banner: '/*! <%= pkg.name %> <%= grunt.template.today("yyyy-mm-dd") %> */\n'
             },
             build: {
-                src: 'src/<%= pkg.name %>.js',
-                dest: 'build/<%= pkg.name %>.min.js'
+                src: 'dist/<%= pkg.name %>.js',
+                dest: 'dist/<%= pkg.name %>.min.js'
             }
         },
 
@@ -100,13 +101,11 @@ module.exports = function(grunt) {
 
     });
 
-    // Load the plugin that provides the "uglify" task.
-    //grunt.loadNpmTasks('grunt-contrib-uglify');
 
     // Default task(s).
-    grunt.registerTask('default', ['jshint']);
+    grunt.registerTask('default', []);
 
-    grunt.registerTask('build', ['compass', 'cssmin']);
+    grunt.registerTask('build', ['compass', 'cssmin', 'jshint' , 'concat', 'uglify']);
 
     grunt.registerTask('watch', ['watch']);
 
