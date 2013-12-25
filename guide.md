@@ -34,7 +34,7 @@ git push -u origin master
  npm update npm -g
 ```
 
-## package.json
+### package.json
 
 * Create a package.json file with ```npm init```
 
@@ -46,23 +46,85 @@ git push -u origin master
     "private" : true,
 
     "devDependencies" : {
-        
+       ... 
     } 
+
+    ...
 }
 ```
 
 * Install dependencies with with --save-dev flag to add them automaticalliy to the package.json (config follows later on)
+* more info on [versions](https://npmjs.org/doc/misc/semver.html#Ranges)
+* more info on [package.json](https://npmjs.org/doc/json.html)
 
 ```
 npm install grunt --save-dev
+...
 ```
 **Maybe interesting**
   * [jshint](https://github.com/gruntjs/grunt-contrib-jshint)
-  * [watch](https://github.com/gruntjs/grunt-contrib-watch)
-  * [requirejs](https://github.com/gruntjs/grunt-contrib-requirejs)
   * [concat](https://github.com/gruntjs/grunt-contrib-concat)
-  * [compass](https://github.com/gruntjs/grunt-contrib-compass)
   * [uglify](https://github.com/gruntjs/grunt-contrib-uglify)
+  * [cssmin](https://github.com/gruntjs/grunt-contrib-cssmin)
+  * [watch](https://github.com/gruntjs/grunt-contrib-watch)
+  * [htmlhint](https://github.com/yaniswang/grunt-htmlhint)
+
+  * [compass](https://github.com/gruntjs/grunt-contrib-compass)
+  * [requirejs](https://github.com/gruntjs/grunt-contrib-requirejs)
+
   * ...
 
 * Add node_modules direcotry to .gitignore
+
+## Grunt and Gruntfile.js
+
+* add a [gruntfile](http://gruntjs.com/getting-started#the-gruntfile) and configure tasks
+
+```
+module.exports = function(grunt) {
+
+  // load all modules starting with "grunt-"
+  require("matchdep").filterDev("grunt-*").forEach(grunt.loadNpmTasks);
+
+  // Project configuration.
+  grunt.initConfig({
+    pkg: grunt.file.readJSON('package.json'),
+    uglify: {
+      options: {
+        banner: '/*! <%= pkg.name %> <%= grunt.template.today("yyyy-mm-dd") %> */\n'
+      },
+      build: {
+        src: 'src/<%= pkg.name %>.js',
+        dest: 'build/<%= pkg.name %>.min.js'
+      }
+    }
+  });
+
+  // Load the plugin that provides the "uglify" task.
+  //grunt.loadNpmTasks('grunt-contrib-uglify');
+
+  // Default task(s).
+  grunt.registerTask('default', []);
+
+};
+```
+### HTMLHint configuration example
+
+```
+htmlhint: {
+    build: {
+        options: {
+            'tag-pair': true,
+            'tagname-lowercase': true,
+            'attr-lowercase': true,
+            'attr-value-double-quotes': true,
+            'doctype-first': true,
+            'spec-char-escape': true,
+            'id-unique': true,
+            'head-script-disabled': true,
+            'style-disabled': true
+        },
+        src: ['index.html']
+    }
+}
+```
