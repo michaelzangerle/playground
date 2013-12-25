@@ -139,6 +139,6 @@ bower install jquery --save-dev
 ```
 
 ##TODO
-*grunt-contrib-imageoptim
-*grunt-newer?
-*grunt-uncss?
+  * grunt-contrib-imageoptim
+  * grunt-newer?
+  * grunt-uncss?

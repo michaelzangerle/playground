@@ -1,16 +1,32 @@
-console.log("dfasdf");
+(function() {
+    'use strict';
 
-if (1 === '1') {
-    //TODO
+    var obj,
+        i;
+
+    console.log("dfasdf");
+
+    // clear console
+    console.clear();
+
+    // assert with console.assert()
+    console.assert(1 === '1', "1 is not the same as \'1\'");
 
 
-    var x = 11;
+    function foo() {
 
-    while (x > 1) {
-        console.log("asdf");
-        x--;
+        // count with console.count()
+        console.count("function foo invoked!");
     }
 
-    x = "asdf";
+    // group console messages
+    console.group("counting results");
+    for (i = 0; i < 10; i++) {
+        foo();
+    }
+    console.groupEnd();
 
-}
+
+    obj = $("body");
+
+}());

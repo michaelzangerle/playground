@@ -20,18 +20,18 @@ module.exports = function(grunt) {
 
         // html ------------------------------
 
-        validation: {
-            options: {
-                reset: grunt.option('reset') || false,
-                stoponerror: false,
-                relaxerror: ["Bad value X-UA-Compatible for attribute http-equiv on element meta."], //ignores these errors
-                doctype: "HTML5",
-                charset: "utf-8"
-            },
-            files: {
-                src: ['demos/**/*.html']
-            }
-        },
+//        validation: {
+//            options: {
+//                reset: grunt.option('reset') || false,
+//                stoponerror: false,
+//                relaxerror: ["Bad value X-UA-Compatible for attribute http-equiv on element meta."], //ignores these errors
+//                doctype: "HTML5",
+//                charset: "utf-8"
+//            },
+//            files: {
+//                src: ['demos/**/*.html']
+//            }
+//        },
 
 
         // css ------------------------------
@@ -92,21 +92,21 @@ module.exports = function(grunt) {
                         expand: true,
                         cwd: 'bower_components/jquery/',
                         src: ['jquery.min.js'],
-                        dest: 'js/libs/jquery/'
+                        dest: 'libs/jquery/'
                     },
                     // underscore
                     {
                         expand: true,
                         cwd: 'bower_components/underscore/',
                         src: ['underscore-min.js'],
-                        dest: 'js/libs/underscore/'
+                        dest: 'libs/underscore/'
                     },
                     // backbone
                     {
                         expand: true,
                         cwd: 'bower_components/backbone/',
                         src: ['backbone-min.js'],
-                        dest: 'js/libs/backbone/'
+                        dest: 'libs/backbone/'
                     }
                 ]
             }
@@ -118,10 +118,10 @@ module.exports = function(grunt) {
             options: {
                 spawn: false
             },
-            html: {
-                files: ['demos/**/*.html'],
-                tasks: ['validation']
-            },
+//            html: {
+//                files: ['demos/**/*.html'],
+//                tasks: ['validation']
+//            },
             css: {
                 files: ['scss/{,*/}*.scss'],
                 tasks: ['compass', 'cssmin']
