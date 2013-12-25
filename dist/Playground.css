@@ -1,11 +1,6 @@
 /* line 1, ../scss/fonts.scss */
 #test {
-  color: white;
-}
-
-/* line 1, ../scss/variables.scss */
-#test2 {
-  color: green;
+  color: #f1f1f1;
 }
 
 /* line 1, ../scss/components/test.scss */

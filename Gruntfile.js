@@ -25,7 +25,7 @@ module.exports = function(grunt) {
                 ' * <%= pkg.name %> v<%= pkg.version %>\n' +
                 ' * <%= pkg.homepage %> \n' +
                 ' * (c) <%= pkg.author %>\n' +
-                ' * <%= grunt.template.today("dd-mm-yyyy hh:mm") %>\n' +
+                ' * <%= grunt.template.today("dd-mm-yyyy HH:mm") %>\n' +
                 ' */\n\n'
         },
 
@@ -34,7 +34,6 @@ module.exports = function(grunt) {
         compass: {
             dev: {
                 options: {
-                    options: { banner: '<%= meta.banner %>' },
                     sassDir: 'scss/',
                     specify: 'scss/Playground.scss',
                     cssDir: 'dist/',
@@ -64,7 +63,7 @@ module.exports = function(grunt) {
 
         uglify: {
             options: {
-                banner: '/*! <%= pkg.name %> <%= grunt.template.today("yyyy-mm-dd") %> */\n'
+                banner: '<%= meta.banner %>'
             },
             build: {
                 src: 'dist/<%= pkg.name %>.js',
@@ -84,28 +83,29 @@ module.exports = function(grunt) {
         // watch ------------------------------
 
         watch: {
+            options: {
+                spawn: false
+            },
 //            html: {
 //                files: ['**/*.html'],
 //                tasks: ['htmlhint']
 //            },
             css: {
-                files: ['scss/Playground.scss'],
-                tasks: ['compass']
+                files: ['scss/{,*/}*.scss'],
+                tasks: ['compass', 'cssmin']
             },
             js: {
-                files: ['dist/Playground.js'],
-                tasks: ['jshint']
+                files: ['js/{,*/}*.js'],
+                tasks: ['jshint', 'uglify', 'concat']
             }
         }
 
     });
 
 
-    // Default task(s).
-    grunt.registerTask('default', []);
+    grunt.registerTask('default', ['watch']);
 
     grunt.registerTask('build', ['compass', 'cssmin', 'jshint' , 'concat', 'uglify']);
 
-    grunt.registerTask('watch', ['watch']);
 
 };

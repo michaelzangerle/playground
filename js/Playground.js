@@ -7,3 +7,5 @@ var test2 = function() {
 
 
 test2();
+
+window.alert("help me123!");
