@@ -1,2 +1,7 @@
-# node related
+playground.iml
+.idea/
+
 node_modules/
+.sass-cache/
+
+

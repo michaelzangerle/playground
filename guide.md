@@ -66,7 +66,7 @@ npm install grunt --save-dev
   * [uglify](https://github.com/gruntjs/grunt-contrib-uglify)
   * [cssmin](https://github.com/gruntjs/grunt-contrib-cssmin)
   * [watch](https://github.com/gruntjs/grunt-contrib-watch)
-  * [htmlhint](https://github.com/yaniswang/grunt-htmlhint)
+  * [html-validation](https://github.com/praveenvijayan/grunt-html-validation)
   * [compass](https://github.com/gruntjs/grunt-contrib-compass)
   * [requirejs](https://github.com/gruntjs/grunt-contrib-requirejs)
   * ...
@@ -104,4 +104,23 @@ module.exports = function(grunt) {
   grunt.registerTask('default', []);
 
 };
+```
+### SCSS with compass
+
+* get the ruby version manager (rvm) [on ubuntu](http://ryanbigg.com/2010/12/ubuntu-ruby-rvm-rails-and-you/)
+* gem update --system
+* gem install compass
+* add grunt-contrib-compass
+
+```
+compass: {
+    dev: {
+        options: {
+            sassDir: 'scss/',
+            specify: 'scss/base.scss',
+            cssDir: 'dist/',
+            relativeAssets: false
+        }
+    }
+},
 ```
