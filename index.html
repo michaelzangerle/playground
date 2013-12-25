@@ -1,0 +1,217 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Playground by michaelzangerle</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>Playground</h1>
+        <p>This is just a playground for various experiments concering web development!</p>
+
+        <p class="view"><a href="https://github.com/michaelzangerle/playground">View the Project on GitHub <small>michaelzangerle/playground</small></a></p>
+
+
+        <ul>
+          <li><a href="https://github.com/michaelzangerle/playground/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/michaelzangerle/playground/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/michaelzangerle/playground">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <h1>
+<a name="readme" class="anchor" href="#readme"><span class="octicon octicon-link"></span></a>README</h1>
+
+<p>This is just a playground for various experiments concering web development!</p>
+
+<h1>
+<a name="getting-started" class="anchor" href="#getting-started"><span class="octicon octicon-link"></span></a>Getting started</h1>
+
+<ul>
+<li>install npm + rvm</li>
+<li>run <code>npm install</code>
+</li>
+<li>run <code>bower install</code>
+</li>
+<li>run <code>grunt build</code>
+</li>
+</ul><h1>
+<a name="guide-to-set-up-an-automated-workflow" class="anchor" href="#guide-to-set-up-an-automated-workflow"><span class="octicon octicon-link"></span></a>Guide to set up an automated workflow</h1>
+
+<h2>
+<a name="repository" class="anchor" href="#repository"><span class="octicon octicon-link"></span></a>Repository</h2>
+
+<ol>
+<li>create a new repo on github</li>
+<li>
+<p>connect local and remote repo</p>
+
+<ul>
+<li>create new local repo an touch</li>
+<li>adjust readme file - <a href="https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet">markdown cheatsheet</a>
+</li>
+<li>add <a href="https://help.github.com/articles/ignoring-files">.gitignore file</a>
+</li>
+</ul>
+</li>
+</ol><pre><code>push README.md
+git init
+git add README.md
+git commit -m "first commit"
+git remote add origin git@github.com:michaelzangerle/playground.git
+git push -u origin master
+</code></pre>
+
+<ul>
+<li>... or push an existing repo </li>
+</ul><pre><code>git remote add origin git@github.com:michaelzangerle/playground.git
+git push -u origin master
+</code></pre>
+
+<h2>
+<a name="npm" class="anchor" href="#npm"><span class="octicon octicon-link"></span></a>NPM</h2>
+
+<ul>
+<li>Install <a href="http://nodejs.org/">npm</a> from here (included in nodejs)</li>
+<li>or update existing npm </li>
+</ul><pre><code> npm update npm -g
+</code></pre>
+
+<h3>
+<a name="packagejson" class="anchor" href="#packagejson"><span class="octicon octicon-link"></span></a>package.json</h3>
+
+<ul>
+<li>Create a package.json file with <code>npm init</code>
+</li>
+</ul><pre><code>{
+    "name" : "Playground",
+    "version" : "0.0.1",
+    "author" : "Michael Zangerle",
+    "private" : true,
+
+    "devDependencies" : {
+       ... 
+    } 
+
+    ...
+}
+</code></pre>
+
+<ul>
+<li>Install dependencies with with --save-dev flag to add them automaticalliy to the package.json (config follows later on)</li>
+<li>more info on <a href="https://npmjs.org/doc/misc/semver.html#Ranges">versions</a>
+</li>
+<li>more info on <a href="https://npmjs.org/doc/json.html">package.json</a>
+</li>
+</ul><pre><code>npm install grunt --save-dev
+</code></pre>
+
+<p><strong>Maybe interesting</strong></p>
+
+<ul>
+<li><a href="https://github.com/gruntjs/grunt-contrib-jshint">jshint</a></li>
+<li><a href="https://github.com/gruntjs/grunt-contrib-concat">concat</a></li>
+<li><a href="https://github.com/gruntjs/grunt-contrib-uglify">uglify</a></li>
+<li><a href="https://github.com/gruntjs/grunt-contrib-cssmin">cssmin</a></li>
+<li><a href="https://github.com/gruntjs/grunt-contrib-watch">watch</a></li>
+<li><a href="https://github.com/praveenvijayan/grunt-html-validation">html-validation</a></li>
+<li><a href="https://github.com/gruntjs/grunt-contrib-compass">compass</a></li>
+<li><a href="https://github.com/gruntjs/grunt-contrib-requirejs">requirejs</a></li>
+<li><a href="https://github.com/gruntjs/grunt-contrib-clean">clean</a></li>
+<li><a href="https://github.com/gruntjs/grunt-contrib-copy">copy</a></li>
+<li><a href="https://github.com/gruntjs/grunt-contrib-yuidoc">yuidoc</a></li>
+<li>...</li>
+</ul><ul>
+<li>Add node_modules direcotry to .gitignore</li>
+</ul><h2>
+<a name="grunt-and-gruntfilejs" class="anchor" href="#grunt-and-gruntfilejs"><span class="octicon octicon-link"></span></a>Grunt and Gruntfile.js</h2>
+
+<ul>
+<li>add a <a href="http://gruntjs.com/getting-started#the-gruntfile">gruntfile</a> and configure tasks (look at Gruntfile.js)</li>
+</ul><pre><code>module.exports = function(grunt) {
+
+  // load all modules starting with "grunt-"
+  require("matchdep").filterDev("grunt-*").forEach(grunt.loadNpmTasks);
+
+  // Project configuration.
+  grunt.initConfig({
+    pkg: grunt.file.readJSON('package.json'),
+    uglify: {
+      options: {
+        banner: '/*! &lt;%= pkg.name %&gt; &lt;%= grunt.template.today("yyyy-mm-dd") %&gt; */\n'
+      },
+      build: {
+        src: 'src/&lt;%= pkg.name %&gt;.js',
+        dest: 'build/&lt;%= pkg.name %&gt;.min.js'
+      }
+    }
+  });
+
+  // Load the plugin that provides the "uglify" task.
+  //grunt.loadNpmTasks('grunt-contrib-uglify');
+
+  // Default task(s).
+  grunt.registerTask('default', []);
+
+};
+</code></pre>
+
+<h3>
+<a name="scss-with-compass" class="anchor" href="#scss-with-compass"><span class="octicon octicon-link"></span></a>SCSS with compass</h3>
+
+<ul>
+<li>get the ruby version manager (rvm) <a href="http://ryanbigg.com/2010/12/ubuntu-ruby-rvm-rails-and-you/">on ubuntu</a>
+</li>
+<li>gem update --system</li>
+<li>gem install compass</li>
+<li>add grunt-contrib-compass</li>
+</ul><pre><code>compass: {
+    dev: {
+        options: {
+            sassDir: 'scss/',
+            specify: 'scss/base.scss',
+            cssDir: 'dist/',
+            relativeAssets: false
+        }
+    }
+}
+</code></pre>
+
+<h2>
+<a name="bower" class="anchor" href="#bower"><span class="octicon octicon-link"></span></a>Bower</h2>
+
+<ul>
+<li>Install bower</li>
+<li>run <code>bower init</code>
+</li>
+<li>get libs/frameworks</li>
+</ul><pre><code>bower install jquery --save-dev
+</code></pre>
+
+<h2>
+<a name="todo" class="anchor" href="#todo"><span class="octicon octicon-link"></span></a>TODO</h2>
+
+<ul>
+<li>grunt-contrib-imageoptim</li>
+<li>grunt-newer?</li>
+<li>grunt-uncss?</li>
+</ul>
+      </section>
+      <footer>
+        <p>This project is maintained by <a href="https://github.com/michaelzangerle">michaelzangerle</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <script src="javascripts/scale.fix.js"></script>
+    
+  </body>
+</html>
