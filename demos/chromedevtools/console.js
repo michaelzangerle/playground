@@ -1,8 +1,10 @@
 (function() {
+
+    // https://developers.google.com/chrome-developer-tools/docs/console-api
+
     'use strict';
 
-    var obj,
-        i;
+    var obj, i, array;
 
     console.log("dfasdf");
 
@@ -20,13 +22,30 @@
     }
 
     // group console messages
-    console.group("counting results");
+    //console.group("counting results");
+    console.groupCollapsed("counting results");
     for (i = 0; i < 10; i++) {
         foo();
     }
     console.groupEnd();
 
 
-    obj = $("body");
+    obj = $("#content");
+
+    // console log vs dir
+    console.dir(obj);
+    console.log(obj);
+
+
+    console.error("an error occured!");
+
+    console.warn("waring!");
+
+    console.time("Array initialize");
+    array= new Array(1000000);
+    for (i = array.length - 1; i >= 0; i--) {
+        array[i] = {};
+    }
+    console.timeEnd("Array initialize");
 
 }());
