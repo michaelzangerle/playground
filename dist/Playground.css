@@ -1,9 +1,25 @@
 /* line 1, ../scss/fonts.scss */
-#test {
-  color: #f1f1f1;
+body {
+  font-family: "Helvetic Neue", Helvetica, Arial;
+  font-size: 12px;
+  color: 484848;
 }
 
-/* line 1, ../scss/components/test.scss */
-body {
-  font-weight: bold;
+/* line 1, ../scss/components/asserts.scss */
+ul#results li {
+  padding: 10px;
+  border: 1px solid;
+  width: 80%;
+  height: 20px;
+  margin-bottom: 5px;
+}
+/* line 8, ../scss/components/asserts.scss */
+ul#results li.fail {
+  border-color: red;
+  background-color: darksalmon;
+}
+/* line 13, ../scss/components/asserts.scss */
+ul#results li.pass {
+  border-color: green;
+  background-color: lightgreen;
 }

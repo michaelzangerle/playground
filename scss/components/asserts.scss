@@ -1,0 +1,17 @@
+ul#results li {
+  padding: 10px;
+  border: 1px solid;
+  width: 80%;
+  height: 20px;
+  margin-bottom:5px;
+
+  &.fail {
+    border-color: red;
+    background-color: darksalmon;
+  }
+
+  &.pass {
+    border-color: green;
+    background-color: lightgreen;
+  }
+}

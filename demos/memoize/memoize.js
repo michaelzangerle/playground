@@ -1,10 +1,10 @@
-(function() {
+(function () {
 
     'use strict';
 
     function memoizeSimplified(fn) {
 
-        return function() {
+        return function () {
 
             // convert arguments object into real array
             // value which are not in the function signature get grouped in the arguments object
@@ -28,7 +28,8 @@
             if (hash in fn.memoize) {
                 return  fn.memoize[hash];
             } else {
-                return fn.memoize[hash] = fn.apply(this, args);
+                fn.memoize[hash] = fn.apply(this, args);
+                return fn.memoize[hash];
             }
         };
     }
@@ -42,7 +43,7 @@
      * Released under an MIT license.
      */
     function memoize(fn) {
-        return function() {
+        return function () {
             var args = Array.prototype.slice.call(arguments),
                 hash = "",
                 i = args.length,
