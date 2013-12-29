@@ -2,7 +2,10 @@
 
 {
     "globals": {
-        "console": true
+        "console": false,
+        "require": false,
+        "define": false,
+        "requirejs": false
     },
     "bitwise": true,
     "camelcase": true,

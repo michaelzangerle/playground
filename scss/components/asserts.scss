@@ -2,8 +2,9 @@ ul#results li {
   padding: 10px;
   border: 1px solid;
   width: 80%;
-  height: 20px;
+  margin-left: -35px;
   margin-bottom:5px;
+  list-style-type: none;
 
   &.fail {
     border-color: red;
