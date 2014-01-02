@@ -55,17 +55,11 @@ require(['playground'], function(playground) {
     };
 
     console.group("bind, obj context, with argument");
-    (foo.bind(obj, []))();
+    (foo.bind(obj, [123,1,2,3,4,5]))();
+    (foo.bind(obj, 123,1,2,3,4,5))();
     console.groupEnd("bind, obj context, with argument");
 
     console.groupEnd("Basics 1 - context, arguments, call, apply, bind");
-
-    // user.foo() vs var test = user.foo() => test();
-
-    // this in foo1() und foo1()-> foo2()
-    // this in user.foo1() und user.foo1()-> user.foo2()
-
-    // bind
 
     /**
      * Inheritance Example
