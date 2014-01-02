@@ -1,5 +1,7 @@
 module.exports = function(grunt) {
 
+    'use strict';
+
     // load all modules starting with "grunt-"
     require("matchdep").filterDev("grunt-*").forEach(grunt.loadNpmTasks);
 
@@ -94,7 +96,7 @@ module.exports = function(grunt) {
                     {
                         expand: true,
                         cwd: 'bower_components/jquery/',
-                        src: ['jquery.min.js'],
+                        src: ['jquery.min.js','jquery.min.map'],
                         dest: 'libs/jquery/'
                     },
                     // underscore
