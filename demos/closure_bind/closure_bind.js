@@ -1,4 +1,4 @@
-(function () {
+(function() {
 
     'use strict';
 
@@ -12,38 +12,37 @@
     },
 
         bind = function bind(context, name) {
-            return function () {
+            return function() {
                 return context[name].apply(context, arguments);
             };
         },
 
-        Function.prototype.bind = function () {
+        Function.prototype.bind = function() {
             var fn = this,
                 args = Array.prototype.slice.call(arguments),
                 object = args.shift();
 
-            return function(){
-              return fn.apply(object, args.concat(Array.prototype.slice.call(arguments)));
+            return function() {
+                return fn.apply(object, args.concat(Array.prototype.slice.call(arguments)));
             };
         },
 
         button = {
             clicked: false,
-            click: function () {
+            click: function() {
                 this.clicked = true;
                 assert(button.clicked, "The button has been clicked!");
             }
         },
 
         el = document.getElementById("test");
-    el.addEventListener("click", button.click, false);
+    el.addEventListener("click", button.click, false); // context of this in click method is the dom button
 
     el2 = document.getElementById("test2");
-    el2.addEventListener("click", bind(button, "click"), false);
+    el2.addEventListener("click", bind(button, "click"), false); // context of this in click method is the button object
 
     el3 = document.getElementById("test3");
-    el3.addEventListener("click", button.click.bind(button), false);
-
+    el3.addEventListener("click", button.click.bind(button), false); // context of this in click method is the button object
 
 })();
 
